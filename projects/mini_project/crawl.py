@@ -12,14 +12,16 @@ def createDirectory(directory):
     except OSError:
         print ('Error: Creating directory. ' +  directory)
 
-driver = webdriver.Chrome("C:\MachineLearning\AI_2022\projects\mini_project\chromedriver.exe")
-driver.implicitly_wait(3)
-driver.get('https://www.google.co.kr/imghp?hl=ko')
 
-keywords = ['porche panamera', 'porsche cayenne', 'porsche 911']
+
+keywords = ['porsche panamera', 'porsche cayenne', 'porsche 911']
 
 for keyword in keywords :
-    createDirectory('./'+keyword+'_img_download')
+    createDirectory('C:\MachineLearning\AI_2022\projects\mini_project'+'./'+keyword)
+
+    driver = webdriver.Chrome("C:\MachineLearning\AI_2022\projects\mini_project\chromedriver.exe")
+    driver.implicitly_wait(3)
+    driver.get('https://www.google.co.kr/imghp?hl=ko')
 
     Keyword=driver.find_element(By.CLASS_NAME, 'gLFyf.gsfi')
     Keyword.send_keys(keyword)
